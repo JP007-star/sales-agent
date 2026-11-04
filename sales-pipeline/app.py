@@ -1,6 +1,6 @@
 """
-Sales Agent - Streamlit Application
-A comprehensive sales management tool with lead tracking, pipeline visualization,
+Sales Pipeline - Streamlit Application
+A comprehensive B2B sales management tool with lead tracking, pipeline visualization,
 outreach automation, and analytics dashboard.
 """
 
@@ -12,10 +12,15 @@ from datetime import datetime, timedelta
 import json
 import os
 from pathlib import Path
+import sys
+
+# Add crm-core to path for shared modules
+crm_core_path = Path(__file__).parent.parent / "crm-core"
+sys.path.insert(0, str(crm_core_path))
 
 # Page configuration
 st.set_page_config(
-    page_title="Sales Agent",
+    page_title="Sales Pipeline",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -28,6 +33,7 @@ from components.pipeline import render_pipeline_tab
 from components.outreach import render_outreach_tab
 from components.analytics import render_analytics_tab
 from components.settings import render_settings_tab
+from components.help import render_help_tab
 from utils.data_manager import DataManager
 from utils.helpers import format_currency, format_date
 
@@ -38,9 +44,9 @@ if 'data_manager' not in st.session_state:
 if 'current_page' not in st.session_state:
     st.session_state.current_page = 'Dashboard'
 
-# Load custom CSS
+# Load custom CSS from crm-core
 def load_css():
-    css_path = Path(__file__).parent / "styles" / "main.css"
+    css_path = crm_core_path / "styles" / "main.css"
     if css_path.exists():
         with open(css_path) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -83,6 +89,8 @@ def main():
         render_analytics_tab()
     elif selected_page == "Settings":
         render_settings_tab()
+    elif selected_page == "Help":
+        render_help_tab()
 
 def render_dashboard():
     """Render the main dashboard with overview metrics and charts."""

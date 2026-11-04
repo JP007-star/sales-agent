@@ -1,5 +1,5 @@
 """
-Sidebar component for Sales Agent navigation.
+Sidebar component for Sales Pipeline navigation.
 """
 
 import streamlit as st
@@ -13,8 +13,8 @@ def render_sidebar():
         # Logo/Brand
         st.markdown("""
         <div style="text-align: center; padding: 1rem 0;">
-            <h1 style="margin: 0; color: #00D4AA;">📈 Sales Agent</h1>
-            <p style="margin: 0.5rem 0 0; color: #888; font-size: 0.85rem;">Your AI-Powered Sales Assistant</p>
+            <h1 style="margin: 0; color: #00D4AA;">📈 Sales Pipeline</h1>
+            <p style="margin: 0.5rem 0 0; color: #888; font-size: 0.85rem;">B2B Sales Management Suite</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -29,7 +29,8 @@ def render_sidebar():
             "Pipeline": "📊 Pipeline",
             "Outreach": "📧 Outreach",
             "Analytics": "📈 Analytics",
-            "Settings": "⚙️ Settings"
+            "Settings": "⚙️ Settings",
+            "Help": "📚 Help"
         }
 
         # Initialize current page in session state if not exists

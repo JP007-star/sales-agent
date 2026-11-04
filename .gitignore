@@ -51,8 +51,8 @@ Thumbs.db
 logs/
 
 # Data files (JSON storage)
-sales-agent/data/*.json
-jp-finds-deals/data/*.json
+sales-pipeline/data/*.json
+affiliate-studio/data/*.json
 
 # Testing
 .coverage
@@ -63,3 +63,6 @@ htmlcov/
 # Distribution
 *.tar.gz
 *.whl
+
+# Cache
+*.cache

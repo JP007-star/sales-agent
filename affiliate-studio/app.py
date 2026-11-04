@@ -1,5 +1,5 @@
 """
-JP Finds Deals - AI Sales Agent
+Affiliate Studio - AI Sales Agent
 Streamlit Application for Instagram Affiliate Marketing Automation
 
 @jp.finds.deals - Automated AI-powered affiliate marketing system
@@ -10,19 +10,21 @@ import os
 import sys
 from pathlib import Path
 
-# Add project root to path
+# Add project root and crm-core to path
 project_root = Path(__file__).parent
+crm_core_path = project_root.parent / "crm-core"
 sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(crm_core_path))
 
 # Page configuration
 st.set_page_config(
-    page_title="JP Finds Deals - AI Sales Agent",
+    page_title="Affiliate Studio - AI Sales Agent",
     page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Load custom CSS
+# Load custom CSS (project-specific for Affiliate Studio's orange theme)
 def load_css():
     css_path = project_root / "assets" / "style.css"
     if css_path.exists():
@@ -74,6 +76,8 @@ from components.content_studio import render_content_studio
 from components.approval_queue import render_approval_queue
 from components.analytics import render_analytics
 from components.settings import render_settings
+from components.workflows import render_workflows
+from components.help import render_help_tab
 
 def main():
     # Render sidebar and get selected page
@@ -111,6 +115,8 @@ def main():
         render_settings()
     elif selected_page == "Workflows":
         render_workflows()
+    elif selected_page == "Help":
+        render_help_tab()
 
 if __name__ == "__main__":
     main()

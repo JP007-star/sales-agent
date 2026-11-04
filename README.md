@@ -1,170 +1,161 @@
-# JP Sales Agent Suite
+# Sales Agent - Streamlit Application
 
-A unified repository containing two Streamlit applications for sales and affiliate marketing automation.
+A comprehensive sales management tool built with Streamlit, featuring lead tracking, pipeline visualization, outreach automation, and analytics dashboard.
 
-## 📦 Projects
+## Features
 
-### 1. Sales Agent (`/sales-agent`)
-**B2B Sales Management Dashboard**
-- Lead management with Kanban pipeline
-- Deal tracking & pipeline visualization
-- Email outreach & campaign management
-- Analytics dashboard with revenue trends
-- Team performance tracking
+### 📊 Dashboard
+- Real-time KPI metrics (leads, deals, pipeline value, conversion rate)
+- Pipeline funnel visualization
+- Revenue trend charts
+- Recent activity feed
+- Upcoming tasks
 
-**Run:** `cd sales-agent && streamlit run app.py`
+### 👥 Leads Management
+- Add, edit, delete leads with full details
+- Filter and search leads
+- Lead scoring algorithm
+- Activity history per lead
+- Task management per lead
+- Bulk actions support
 
----
+### 📈 Pipeline (Kanban Board)
+- Visual Kanban board with 7 stages
+- Drag-and-drop simulation for stage changes
+- Pipeline value by stage
+- Stage aging analysis
+- Conversion funnel
 
-### 2. JP Finds Deals (`/jp-finds-deals`)
-**AI-Powered Instagram Affiliate Marketing** `@jp.finds.deals`
-- Product discovery (Amazon, Flipkart)
-- Gemini AI content generation (English/Tamil/Tanglish)
-- Reel scripts, SEO captions, video prompts
-- Approval workflow for publishing
-- Affiliate click & commission tracking
-- n8n workflow automation (8 workflows)
+### 📧 Outreach Center
+- Email composer with variable substitution
+- Campaign management
+- Template library with categories
+- Outreach analytics (open rates, click rates, reply rates)
 
-**Run:** `cd jp-finds-deals && streamlit run app.py`
+### 📈 Analytics Dashboard
+- Lead velocity charts
+- Revenue trends
+- Team performance
+- Lead score distribution
+- Activity heatmap
+- Pipeline aging
+- Detailed data tables with export
 
----
+### ⚙️ Settings
+- Profile management
+- Notification preferences
+- Integrations (Gmail, Outlook, HubSpot, Salesforce, LinkedIn, Zoom, Calendly, Slack, Zapier)
+- Pipeline stage customization
+- Team management
+- Data export/import
+- Data retention policies
 
-## 🚀 Quick Start
+## Installation
 
 ```bash
-# Clone the repo
-git clone <repo-url>
-cd jp-sales-agent-combined
+# Navigate to the project directory
+cd sales-agent
 
-# Install dependencies for both projects
-cd sales-agent && pip install -r requirements.txt
-cd ../jp-finds-deals && pip install -r requirements.txt
+# Install dependencies
+pip install -r requirements.txt
 
-# Configure environment
-cd jp-finds-deals
-cp .env.example .env
-# Edit .env with your API keys (Gemini required)
-
-# Run either app
-cd ../sales-agent && streamlit run app.py      # Port 8501
-# OR
-cd ../jp-finds-deals && streamlit run app.py   # Port 8502
+# Run the app
+streamlit run app.py
 ```
 
----
-
-## 📁 Repository Structure
+## Project Structure
 
 ```
-jp-sales-agent-combined/
-├── README.md                    # This file
-├── sales-agent/                 # B2B Sales Dashboard
-│   ├── app.py
-│   ├── requirements.txt
-│   ├── README.md
-│   ├── components/
-│   │   ├── sidebar.py
-│   │   ├── dashboard.py
-│   │   ├── leads.py
-│   │   ├── pipeline.py
-│   │   ├── outreach.py
-│   │   ├── analytics.py
-│   │   └── settings.py
-│   ├── utils/
-│   │   ├── data_manager.py
-│   │   └── helpers.py
-│   └── styles/
-│       └── main.css
-│
-└── jp-finds-deals/              # AI Affiliate Marketing
-    ├── app.py
-    ├── requirements.txt
-    ├── .env.example
-    ├── README.md
-    ├── components/
-    │   ├── sidebar.py
-    │   ├── dashboard.py
-    │   ├── product_manager.py
-    │   ├── content_studio.py
-    │   ├── approval_queue.py
-    │   ├── analytics.py
-    │   ├── settings.py
-    │   └── workflows.py
-    ├── utils/
-    │   ├── helpers.py
-    │   └── gemini_client.py
-    ├── assets/
-    │   └── style.css
-    └── workflows/               # n8n workflow JSONs (exported)
+sales-agent/
+├── app.py                 # Main application entry point
+├── requirements.txt       # Python dependencies
+├── README.md             # This file
+├── components/           # UI components
+│   ├── __init__.py
+│   ├── sidebar.py        # Navigation sidebar
+│   ├── leads.py          # Leads management
+│   ├── pipeline.py       # Pipeline Kanban board
+│   ├── outreach.py       # Email outreach & campaigns
+│   ├── analytics.py      # Analytics dashboard
+│   └── settings.py       # Settings & configuration
+├── utils/                # Utility modules
+│   ├── __init__.py
+│   ├── data_manager.py   # Data persistence layer
+│   └── helpers.py        # Helper functions
+├── styles/               # Custom CSS
+│   └── main.css          # Main stylesheet
+└── data/                 # JSON data files (auto-created)
+    ├── leads.json
+    ├── activities.json
+    ├── tasks.json
+    ├── campaigns.json
+    └── templates.json
 ```
 
----
+## Data Persistence
 
-## 🔧 Shared Utilities
+Data is stored locally in JSON files in the `data/` directory:
+- `leads.json` - Lead information
+- `activities.json` - Activity log
+- `tasks.json` - Task management
+- `campaigns.json` - Email campaigns
+- `templates.json` - Email templates
 
-Both projects use similar patterns:
-- **Streamlit** for UI
-- **Plotly** for charts
-- **Pandas** for data processing
-- **Session state** for data persistence
-- **Custom CSS** for dark theme
+## Lead Scoring Algorithm
 
----
+Leads are automatically scored (0-100) based on:
+- **Stage** (10-100 points): New=10, Contacted=20, Qualified=40, Proposal=60, Negotiation=80, Closed Won=100
+- **Deal Value** (0-30 points): $100K+=30, $50K+=20, $10K+=10, >$0=5
+- **Source** (0-15 points): Referral/Partner=15, Event=10, Website/Email/Social=5
+- **Engagement** (0-15 points): Last contacted=10, Next follow-up scheduled=5
 
-## 🔑 Required API Keys (JP Finds Deals)
+Score Labels:
+- 🔥 Hot (≥80)
+- 🌡️ Warm (60-79)
+- ❄️ Cool (40-59)
+- 🧊 Cold (<40)
 
-| Service | Purpose | Free Tier |
-|---------|---------|-----------|
-| Google Gemini | AI content generation | 15 RPM, 1M tokens/day |
-| Instagram Graph API | Publishing Reels | Requires Meta App approval |
-| Amazon Associates | Affiliate links | Standard program |
-| Flipkart Affiliate | Affiliate links | Standard program |
-| Canva API | Design automation | Developer access required |
+## Customization
 
----
+### Adding Pipeline Stages
+Go to Settings → Pipeline Stages to add, remove, or reorder stages with custom colors and win probabilities.
 
-## 📊 Features Comparison
+### Email Templates
+Pre-built templates included:
+- Initial Cold Outreach
+- Follow-up After No Response
+- Proposal Follow-up
+- Referral Request
+- Meeting Confirmation
 
-| Feature | Sales Agent | JP Finds Deals |
-|---------|-------------|----------------|
-| Lead/Deal Management | ✅ Full CRM | ❌ |
-| Pipeline Kanban | ✅ 7 stages | ❌ |
-| Email Campaigns | ✅ Templates | ❌ |
-| AI Content Gen | ❌ | ✅ Gemini (3 languages) |
-| Video Prompts | ❌ | ✅ Canva/Flow/FFmpeg |
-| Approval Workflow | ❌ | ✅ Multi-stage |
-| Affiliate Tracking | ❌ | ✅ Clicks/Commission |
-| Instagram Publishing | ❌ | ✅ Graph API |
-| n8n Automation | ❌ | ✅ 8 workflows |
-| Analytics | ✅ Revenue/Team | ✅ Content/Affiliate |
+Variables available: `{name}`, `{company}`, `{sender_name}`, `{sender_email}`, `{sender_title}`
 
----
+### Integrations
+Configure integrations in Settings → Integrations:
+- Gmail/Google Workspace
+- Outlook/Office 365
+- HubSpot CRM
+- Salesforce
+- LinkedIn Sales Navigator
+- Zoom
+- Calendly
+- Slack
+- Zapier
 
-## 🛠️ Development
+## Keyboard Shortcuts
 
-Both apps are independent Streamlit applications. To modify:
+- `N` - New Lead (when not in input field)
+- `C` - New Campaign
+- `T` - New Task
+- `Escape` - Close modals
 
-1. Navigate to the project directory
-2. Edit components in `components/`
-3. Shared utilities in `utils/`
-4. Styles in `styles/` or `assets/`
+## Browser Support
 
----
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
 
-## 📄 License
+## License
 
-MIT License - Free to use and modify.
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Make changes to either project
-4. Test locally
-5. Submit PR
-
----
-
-**Built for sales automation & affiliate marketing success!** 🚀
+MIT License - Feel free to use and modify for your sales team.

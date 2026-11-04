@@ -31,7 +31,8 @@ def render_sidebar():
             "Approval Queue": "✅ Approval Queue",
             "Analytics": "📊 Analytics",
             "Workflows": "🔄 Workflows",
-            "Settings": "⚙️ Settings"
+            "Settings": "⚙️ Settings",
+            "Help": "📚 Help"
         }
 
         # Initialize current page in session state if not exists
