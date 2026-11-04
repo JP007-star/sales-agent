@@ -1,0 +1,1 @@
+# Components package for JP Finds Deals

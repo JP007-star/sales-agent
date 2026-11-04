@@ -1,0 +1,473 @@
+/* Sales Agent - Custom Styles */
+
+/* CSS Variables for theming */
+:root {
+    --primary-color: #00D4AA;
+    --primary-hover: #00E8BB;
+    --primary-light: #00D4AA20;
+    --secondary-color: #3B82F6;
+    --success-color: #10B981;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
+    --dark-bg: #0E1117;
+    --card-bg: #1E2329;
+    --border-color: #2D333B;
+    --text-primary: #FAFAFA;
+    --text-secondary: #A0A0A0;
+    --text-muted: #6B7280;
+}
+
+/* Global Styles */
+.stApp {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+/* Sidebar Styling */
+section[data-testid="stSidebar"] {
+    background-color: var(--card-bg) !important;
+    border-right: 1px solid var(--border-color);
+}
+
+section[data-testid="stSidebar"] .stButton > button {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button[kind="primary"] {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+}
+
+/* Main Content Area */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 100% !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Metrics */
+[data-testid="stMetric"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+}
+
+[data-testid="stMetric"] > div {
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stMetric"] label {
+    color: var(--text-secondary) !important;
+}
+
+[data-testid="stMetric"] [data-testid="stMetricDelta"] {
+    color: var(--success-color) !important;
+}
+
+/* Buttons */
+.stButton > button {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button[kind="primary"] {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+}
+
+.stButton > button[kind="secondary"] {
+    background-color: transparent !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background-color: var(--card-bg) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Form Elements */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > div,
+.stNumberInput > div > div > input {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stSelectbox > div > div > div:focus-within {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px var(--primary-light) !important;
+}
+
+/* DataFrames */
+[data-testid="stDataFrame"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stDataFrame"] table {
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stDataFrame"] th {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+[data-testid="stDataFrame"] td {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+[data-testid="stDataFrame"] tr:hover td {
+    background-color: var(--dark-bg) !important;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    background-color: transparent !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px 8px 0 0 !important;
+    color: var(--text-secondary) !important;
+    padding: 0.75rem 1.5rem !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Expanders */
+.stExpander {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+}
+
+.stExpander summary {
+    color: var(--text-primary) !important;
+}
+
+/* Progress Bars */
+.stProgress > div > div > div {
+    background-color: var(--primary-color) !important;
+}
+
+/* Selectbox Options */
+.stSelectbox [data-baseweb="popover"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.stSelectbox [role="option"] {
+    color: var(--text-primary) !important;
+}
+
+.stSelectbox [role="option"]:hover {
+    background-color: var(--primary-light) !important;
+}
+
+/* File Uploader */
+.stFileUploader > div {
+    background-color: var(--card-bg) !important;
+    border: 2px dashed var(--border-color) !important;
+    border-radius: 12px !important;
+}
+
+.stFileUploader > div:hover {
+    border-color: var(--primary-color) !important;
+}
+
+/* Markdown */
+.stMarkdown {
+    color: var(--text-primary);
+}
+
+.stMarkdown code {
+    background-color: var(--dark-bg) !important;
+    color: var(--primary-color) !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 4px !important;
+}
+
+/* Container/Box styling for cards */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.1);
+}
+
+/* Lead card specific */
+.lead-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.lead-card:hover {
+    border-color: var(--primary-color);
+}
+
+/* Badge styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-primary { background-color: var(--primary-light); color: var(--primary-color); }
+.badge-success { background-color: #10B98120; color: #10B981; }
+.badge-warning { background-color: #F59E0B20; color: #F59E0B; }
+.badge-danger { background-color: #EF444420; color: #EF4444; }
+.badge-info { background-color: #3B82F620; color: #3B82F6; }
+.badge-neutral { background-color: #6B728020; color: #6B7280; }
+
+/* Stage indicators */
+.stage-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Tooltips */
+.stTooltipIcon {
+    color: var(--text-muted) !important;
+}
+
+/* Form borders */
+.stForm {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+/* Divider */
+hr {
+    border-color: var(--border-color) !important;
+    opacity: 0.5;
+}
+
+/* Info/Success/Warning/Error boxes */
+.stAlert {
+    border-radius: 10px !important;
+}
+
+.stAlert[data-baseweb="notification"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Number input buttons */
+.stNumberInput button {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Checkbox */
+.stCheckbox > label {
+    color: var(--text-primary) !important;
+}
+
+.stCheckbox > label > div:first-child {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.stCheckbox > label > div:first-child[data-checked="true"] {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Radio */
+.stRadio > label {
+    color: var(--text-primary) !important;
+}
+
+.stRadio [role="radiogroup"] > label {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.stRadio [role="radiogroup"] > label[data-selected="true"] {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Date input */
+.stDateInput > div > div > input {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Time input */
+.stTimeInput > div > div > input {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Color picker */
+.stColorPicker > div > div > div {
+    border-color: var(--border-color) !important;
+}
+
+/* Multiselect */
+.stMultiSelect > div > div {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.stMultiSelect [data-baseweb="tag"] {
+    background-color: var(--primary-light) !important;
+    color: var(--primary-color) !important;
+    border-radius: 6px !important;
+}
+
+/* Slider */
+.stSlider > div > div > div > div {
+    background-color: var(--primary-color) !important;
+}
+
+/* Plotly charts */
+.js-plotly-plot {
+    background-color: transparent !important;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    [data-testid="stMetric"] {
+        padding: 0.75rem !important;
+    }
+
+    .stButton > button {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* Custom scrollbar for dataframes */
+[data-testid="stDataFrame"] ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+[data-testid="stDataFrame"] ::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+[data-testid="stDataFrame"] ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
